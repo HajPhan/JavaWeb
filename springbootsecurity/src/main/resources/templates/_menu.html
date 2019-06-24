@@ -1,0 +1,14 @@
+<di xmlns:th="http://www.thymeleaf.org" style="border: 1px solid #ccc; padding: 5px; margin-bottom: 20px">
+    <a th:href="@{/}">Home</a>
+    | &nbsp;
+    <a th:href="@{/userAccountInfo}">User Info</a>
+    | &nbsp;
+    <a th:href="@{/admin}">Admin</a>
+    | &nbsp;
+    <!--<a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>-->
+    <a th:if="${#request.userPrincipal != null}" th:href="@{/j_spring_security_logout}">Logout</a>
+    <!--<form th:action="@{/j_spring_security_logout}" method="post">-->
+        <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+        <!--<input type="submit" value="Logout"/>-->
+    <!--</form>-->
+</di>

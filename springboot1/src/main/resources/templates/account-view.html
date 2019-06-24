@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3><a th:href="@{/}">List Account</a> </h3>
+    <table th:object="${accountList}">
+        <tr>
+            <th>ID: </th>
+            <td th:text="${accountList.getId()}"></td>
+        </tr>
+        <tr>
+            <th>Name: </th>
+            <td th:text="${accountList.getName()}"></td>
+        </tr>
+        <tr>
+            <th>Email: </th>
+            <td th:text="${accountList.getEmail()}"></td>
+        </tr>
+    </table>
+</body>
+</html>

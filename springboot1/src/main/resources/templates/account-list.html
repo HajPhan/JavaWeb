@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/mycss.css">
+</head>
+<body>
+<div class="c">
+    <!-- Header -->
+    <div class="header">
+        <h3><a th:href="@{/account-save}">Add New Account</a></h3>
+    </div>
+
+    <!-- Search -->
+    <div class="search">
+        <form th:action="@{/searchAccount}">
+            <input type="text" name="searchString">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th colspan="3">Action</th>
+            </tr>
+            <th:block th:each="account : ${page.getContent()}">
+                <tr>
+                    <td th:text="${account.getId()}"></td>
+                    <td th:text="${account.getName()}"></td>
+                    <td th:text="${account.getEmail()}"></td>
+                    <td class="center"><a th:href="${'/account-view/'+account.getId()}"
+                                          style="text-align: center;">View</a>
+                    </td>
+                    <td class="center"><a th:href="${'/account-update/'+account.getId()}">Edit</a></td>
+                    <td class="center"><a th:href="${'/deleteAccount/'+account.getId()}">Delete</a></td>
+                </tr>
+            </th:block>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer pagination">
+        <a href="#">&laquo;</a>
+        <th:block th:each="list : ${#numbers.sequence(0,page.getTotalPages()-1)}">
+            <!--<span th:if="${list == 1}">-->
+                <a th:href="@{/(nPage=${list})}" th:text="${list+1}"></a>
+            <!--</span>-->
+        </th:block>
+        <a href="#">&raquo;</a>
+        <br/>
+    </div>
+</div>
+</body>
+</html>

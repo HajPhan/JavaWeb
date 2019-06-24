@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Test Database</h1>
+<table th:object="${userList}">
+    <tr>
+        <td>Id</td>
+        <td>FullName</td>
+        <td>UseName</td>
+        <td>Password</td>
+    </tr>
+    <tr>
+        <td th:text="${userList.getUserId()}"></td>
+        <td th:text="${userList.getUserFullname()}"></td>
+        <td th:text="${userList.getUserName()}"></td>
+        <td th:text="${userList.getUserPassword()}"></td>
+    </tr>
+</table>
+<br/>
+<hr/>
+<table>
+    <tr>
+        <td>RoleName</td>
+    </tr>
+    <th:block th:each="role : ${roleList}">
+        <tr>
+            <td th:text="${role}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,td{
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+th{
+    height: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:hover{
+    background-color: #ddd;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    position: relative;
+}
+
+.bottomright{
+    position: absolute;
+    bottom: -110px;
+    /*bootom: 0%;*/
+    right: 8px;
+    font-size: 18px;
+}
+
+
+
+

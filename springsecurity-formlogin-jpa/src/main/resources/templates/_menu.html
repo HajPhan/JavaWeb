@@ -1,0 +1,11 @@
+<div xmlns:th="http://www.thymeleaf.org" style="border: 1px solid #ccc; padding: 5px; margin-bottom: 20px;">
+    <a th:href="@{/}">Home</a>
+    | &nbsp;
+    <a th:href="@{/userInfo}">User Info</a>
+<!--    | &nbsp;-->
+<!--    <a th:href="@{/admin}">Admin</a>-->
+    | &nbsp;
+    <a th:if="${#request.userPrincipal != null}" th:href="@{/j_spring_security_logout}">Logout</a>
+
+    <a th:if="${#request.userPrincipal != null}" th:text="${'|  Xin chao: ' + #request.getUserPrincipal().getName()}"></a>
+</div>

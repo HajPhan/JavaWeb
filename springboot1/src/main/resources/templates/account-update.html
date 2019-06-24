@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/mycss.css">
+</head>
+<body>
+<h3><a th:href="@{/}">List Account</a></h3>
+<form th:action="@{/updateAccount/{id}(id=${account.getId()})}" th:object="${account}" method="post">
+    <div class="form-example">
+        <label>Id: </label>
+        <input th:field="*{id}" disabled="true">
+    </div>
+    <div class="form-example">
+        <label>Name: </label>
+        <input th:field="*{name}">
+    </div>
+    <div class="form-example">
+        <label>Email: </label>
+        <input th:field="*{email}">
+    </div>
+    <div class="form-example">
+        <label></label>
+        <input type="submit" value="Update">
+    </div>
+</form>
+</body>
+
+</html>

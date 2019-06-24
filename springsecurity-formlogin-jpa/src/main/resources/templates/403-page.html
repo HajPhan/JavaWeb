@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- Include _menu.html   -->
+    <div th:include="_menu"></div>
+
+    <!--    -->
+    <div>
+        <h3 th:if="${message != null}" th:utext="${message}" style="color: red"></h3>
+        <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table th:object="${listUser}">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>FullName</td>
+        <td>EncrytedPassword</td>
+        <td>Enable</td>
+    </tr>
+    <tr>
+        <td th:text="${listUser.getUserId()}"></td>
+        <td th:text="${listUser.getUserName()}"></td>
+        <td th:text="${listUser.getFullName()}"></td>
+        <td th:text="${listUser.getEncrytedPassword()}"></td>
+        <td th:text="${listUser.isEnabled()}"></td>
+    </tr>
+</table>
+<br/>
+<hr/>
+<table>
+    <tr>
+        <td>RoleText</td>
+    </tr>
+    <th:block th:each="role : ${listRole}">
+        <tr>
+            <td th:text="${role}"></td>
+        </tr>
+    </th:block>
+
+</table>
+</body>
+</html>

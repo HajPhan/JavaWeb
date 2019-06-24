@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+</head>
+<body>
+    <h3><a th:href="@{employee-list}">Employee List</a></h3>
+
+    <form th:action="@{/saveEmployee}" method="post" th:object="${employee}">
+        <table th:if="${employee!=null}">
+            <tr>
+                <th>First Name:</th>
+                <td><input th:field="*{firstName}"/></td>
+            </tr>
+            <tr>
+                <th>Last Name: </th>
+                <td><input th:field="*{lastName}"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"/></td>
+            </tr>
+            <!--<tr>-->
+                <!--<td th:if="${successMessage}" style="color: lime; font-style: italic"></td>-->
+            <!--</tr>-->
+        </table>
+    </form>
+    <br/>
+    <!--<div th:if="${successMessage}" th:utext="${successMessage}" style="color: lime; font-style: italic">-->
+
+    <!--</div>-->
+    <div th:if="${errorMessage}" th:utext="${errorMessage}" style="color: red; font-style: italic;">
+        <form th:action="@{/saveEmployee}" method="post" th:object="${employee}">
+            <table th:if="${employee!=null}">
+                <tr>
+                    <th>First Name:</th>
+                    <td><input th:field="*{firstName}"/></td>
+                </tr>
+                <tr>
+                    <th>Last Name: </th>
+                    <td><input th:field="*{lastName}"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit"/></td>
+                </tr>
+                <!--<tr>-->
+                <!--<td th:if="${successMessage}" style="color: lime; font-style: italic"></td>-->
+                <!--</tr>-->
+            </table>
+        </form>
+    </div>
+</body>
+</html>

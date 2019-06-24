@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- replace = "nameFile : nameFlagment" -->
+    <div th:replace="/common/header :: header"></div>
+    <br/>
+    <hr/>
+    <!--/*@thymesVar id="msg" type=""*/-->
+    <h1 th:text="${msg}">Home</h1>
+    <br/>
+    <hr/>
+    <h1 th:if="${number >= 10}" th:text="${hello}">Home</h1>
+    <br/>
+    <hr/>
+    <h1 th:if="${number >= 10}">Home</h1>
+    <br/>
+    <hr/>
+    <h1 th:text="${hello}"></h1>
+    <br/>
+    <hr/>
+    <!--/*@thymesVar id="list" type=""*/-->
+    <h1 th:text="#{employee.list}"></h1>
+    <br/>
+    <hr/>
+    <h1 th:text="${employee}"></h1>
+    <br/>
+    <hr/>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        <th:block th:each="e : ${employee}">
+            <tr th:if="${e.getId() > 3}">
+                <td th:text="${e.getId()}"></td>
+                <td th:text="${e.getName()}"></td>
+            </tr>
+        </th:block>
+    </table>
+    <hr/>
+    <br/>
+    <div th:replace="/common/footer :: footer"></div>
+</body>
+</html>

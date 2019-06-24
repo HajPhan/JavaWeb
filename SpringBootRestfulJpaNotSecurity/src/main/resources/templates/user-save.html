@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3><a th:href="@{/home}">List User</a></h3>
+    <br/>
+    <form th:action="@{/saveUser}" method="post" th:object="${user}">
+        <table>
+            <tr>
+                <td>Fullname: </td>
+                <td><input th:field="*{fullName}"></td>
+            </tr>
+            <tr>
+                <td>Username: </td>
+                <td><input th:field="*{userName}"></td>
+            </tr>
+            <tr>
+                <td>Password: </td>
+                <td><input th:field="*{passWord}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

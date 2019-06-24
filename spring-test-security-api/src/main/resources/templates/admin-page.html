@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <link type="text/css" rel="stylesheet" href="/css/mycss.css">
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <div th:replace="/common/header :: header"></div>
+
+    <!-- Content -->
+    <div>
+        <h3><a th:href="@{/}">Add New User</a> </h3>
+        <br>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>FullName</th>
+                <th>UserName</th>
+                <th>PassWord</th>
+                <th colspan="3">Action</th>
+            </tr>
+            <th:block th:each="user : ${userList}">
+                <tr>
+                    <td th:text="${user.getId()}"></td>
+                    <td th:text="${user.getFullname()}"></td>
+                    <td th:text="${user.getUsername()}"></td>
+                    <td th:text="${user.getPassword()}"></td>
+                    <td><a th:href="${'/user-save'+user.getId()}">View</a> </td>
+                    <td><a th:href="${'/user-update'+user.getId()}">Edit</a> </td>
+                    <td><a th:href="${'/deleteUser'+user.getId()}">Delete</a> </td>
+                </tr>
+            </th:block>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="/common/footer :: footer"></div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot Security Hello</title>
+</head>
+<body>
+    <h2>Spring Boot Security Login With Google+</h2>
+    <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8383/login-google&response_type=code&client_id=421809150671-rsn19jk7jtojdf8ofsfqv5a5naee116i.apps.googleusercontent.com&approval_prompt=force">Login
+        With Gmail</a>
+    <br/>
+    <form th:action="@{/j_spring_security_login}" method="post">
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username" value=""></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    </form>
+</body>
+</html>
